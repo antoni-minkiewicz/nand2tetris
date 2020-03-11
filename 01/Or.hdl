@@ -1,0 +1,14 @@
+/* This is a binary chip that takes a and b as inputs and out as an output
+* Out has the value 0 only in the case in which both a and b are 0
+* Only in the case in which both a and b are 0, out has the value 0.
+*/
+
+CHIP Or {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    Nand(a=a, b=a, out=w1);
+    Nand(a=b, b=b, out=w2);
+    Nand(a=w1, b=w2, out=out);
+}

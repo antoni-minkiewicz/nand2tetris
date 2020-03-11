@@ -1,0 +1,14 @@
+/* This chip takes two input pins: a and b, it outputs to one pin: out
+   Out has the value 1, only in the case in which a and b are both 1.
+   In all other cases the value of out is 0.
+*/
+
+CHIP And{
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    Nand (a=a, b=b, out=w1);
+    Nand (a=a, b=b, out=w2);
+    Nand (a=w1, b=w2, out=out);
+}
